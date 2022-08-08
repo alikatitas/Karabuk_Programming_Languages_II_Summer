@@ -7,49 +7,38 @@ Buna göre asagida verilen alanlara “main” ve “hesapla” fonksiyonlarini yaziniz*/
 
 #include <stdio.h>
 
-#define gecmeNotu 50
-
-int Hesapla(int ogrSay, int dersNotu, int ogrenciler[]){
+int hesapla(ogrSay,gecme){
+	int i,ortalama,toplam=0,not[ogrSay],sonuc=0;
 	
-int i,derstenKalan=0;
+	for(i=0;i<ogrSay;i++){
+	printf("%d. Ogrencisinin Notunu Girin : ",i+1);
+	scanf("%d",&not[i]);
+	if(not[i]>gecme){
+		sonuc++;
+	}
+	}	
 	
-for(i=0;i<ogrSay;i++){
-ogrenciler[i]	= dersNotu;
-}
-
-for(i=0;i<ogrSay;i++){
-printf("%d\n",ogrenciler[i]);
-}
-
-return derstenKalan;
-
-
+	for(i=0;i<ogrSay;i++){
+		toplam += not[i];
+	}
+	
+	ortalama = toplam/ogrSay;
+	
+	printf("Ortalama : %d\n",ortalama);
+	return sonuc;
+	
 }
 
 
 
 int main(void){
 	
-	int i,ogrSay,dersNotu;
-	
-	printf("Ogrenci Sayisini Girin : \n");
+	int ogrSay, gecme, sonuc;
+	printf("Ogrenci sayisini girin : ");
 	scanf("%d",&ogrSay);
-	
-	int ogrenciler[ogrSay];
-	
-	for(i=1;i<=ogrSay;i++){
-	if(ogrSay>100){
-	printf("Ogrenci sayisi 100\'den fazla olamaz\n");	
-	break;
-	}else
-	{
-	printf("%d. Ogrencinin Ders Gecme Notunu Girin :  ",i);
-	scanf("%d",&dersNotu);	
-	}
-	
-	}
-	printf("Dersten Kalan Ogrenci Sayisi : %d\n", Hesapla(ogrSay,dersNotu,ogrenciler));
-
-
+	printf("Gecme Notunu girin : ",gecme);
+	scanf("%d",&gecme);
+	sonuc=hesapla(ogrSay,gecme);
+	printf("Gecen sayisi : %d kisidir.",sonuc);
 	return 0;
 }
