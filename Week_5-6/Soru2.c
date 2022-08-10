@@ -19,5 +19,6 @@ int main(void) {
 		for(i=0;i<n;i++){
 		printf("Dizinin %d. Elemaninin Degeri: %d\n", i+1, *(dizi+i));
 	}
+	free(*dizi);
 	
 }

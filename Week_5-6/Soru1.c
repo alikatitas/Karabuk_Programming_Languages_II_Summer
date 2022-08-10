@@ -35,5 +35,7 @@ int main(void){
 
 	printf("%d", buyukBul(arr,n));
 	
+	
+	free(arr);
 	return 0;
 }
